@@ -1,45 +1,16 @@
 import React, { Component } from 'react'
-import { StyleSheet, Text, View, Image, Dimensions } from 'react-native'
+import { StyleSheet, Text, View } from 'react-native'
+import { PostFeed } from './components/container'
 
 export default class InstaClone extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            screenWidth: Dimensions.get("window").width
-        }
-    }
-    
 
     render() {
-        const imageHeight = Math.floor(this.state.screenWidth * 1.1);
-        const picUri = "https://lh3.googleusercontent.com/beVAM2QriV9WGgk4oiV-OJfXDVmHsvfioW0afGkkkaaGpMOR1mIjz9lkeza2b3HV1Mz72ysAP_0TnhW4PJ6bl8rbVg=s" + imageHeight + "-c";
         return (
             <View style={{ flex: 1, width: 100+"%", height: 100+"%" }}>
                 <View style={styles.tempNav}>
-                    <Text style={styles.appTitle}>Instagram</Text>
+                    <Text>Instagram</Text>
                 </View>
-
-                <View style={styles.userBar}>
-                    <View style={{ flexDirection: "row", alignItems: "center"}}>
-                        <Image 
-                            style={styles.userProfilePic}
-                            source={{
-                                uri:
-                                    "https://lh3.googleusercontent.com/GBvqZUUdkfJxKj9HlcilGaP06EK_74SUr8gVdNIlhLA_wh3vtCqBiuJGim5WYtox-3XyieQ-4sxI_fJeGR5DxAA5=s1024"
-                            }}
-                        />
-                        <Text style={{ marginLeft: 10 }}>Tags213</Text>
-                    </View>
-                    <View>
-                    <Text style={{ fontSize: 20, fontWeight: "bold" }}>...</Text>
-                    </View>
-                </View>
-                <Image
-                    style={{ width: this.state.screenWidth , height: 450 }}
-                    source={{
-                        uri: picUri
-                    }}
-                /> 
+                <PostFeed />
             </View>
         );
     }
@@ -56,21 +27,5 @@ const styles = StyleSheet.create({
         borderBottomWidth: StyleSheet.hairlineWidth,
         justifyContent: "center",
         alignItems: "center"
-    },
-
-    userBar: {
-        width: 100 + '%',
-        height: 50,
-        backgroundColor: "rgb(255,255,255)",
-        flexDirection: "row",
-        paddingHorizontal: 10,
-        justifyContent: "space-between"
-    },
-
-    userProfilePic: {
-        height: 40,
-        width: 40,
-        borderRadius: 20
-    },
-
+    }
 })
